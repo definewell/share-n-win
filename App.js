@@ -1,18 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Movies from './RestExample'
+import OfferScreen from './screens/OfferScreen'
+import LoginScreen from './screens/LoginScreen'
+import Header from './screens/Header'
 
 export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-      <Movies />
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        
-      </View>
+      <Header />
     );
   }
 }
