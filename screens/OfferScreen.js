@@ -1,14 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View , Alert, Button} from 'react-native';
 import ImageSlider from 'react-native-image-slider';
+import Dialog from './Dialog'
+import ButtonOps from './ButtonOps'
+
 
 const styles = StyleSheet.create({
     container: {
-        height:1000,marginTop: 400
+        marginTop: 10
     },
     image: {
         height:250,
-        marginTop: 200
+        marginTop: 100
     },
     buttons: {
         height: 15,
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
-        marginTop : 400
+        marginTop : 100
     },
     button: {
         margin: 3,
@@ -75,6 +78,8 @@ class OfferScreen extends React.Component {
                     position={this.state.position}
                     onPress = {this.onImagePress}
                     onPositionChanged={position => this.setState({position})}/>
+<Dialog/>
+<ButtonOps/>
                 
             </View>
         );

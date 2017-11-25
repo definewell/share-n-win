@@ -1,18 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import OfferScreen from './screens/OfferScreen'
-import LoginScreen from './screens/LoginScreen'
-import Header from './screens/Header'
-import Dialog from './screens/Dialog'
+import { Button} from 'nachos-ui'
 
-export default class App extends React.Component {
+export default class ButtonOps extends React.Component {
 
   render() {
     return (
-      <OfferScreen />
+        <View>
+       <Button style={btnStyle}>Track Your Offers</Button>
+  
+      </View>
     );
   }
 }
+
+const btnStyle = { margin: 15 }
 
 const styles = StyleSheet.create({
   container: {
