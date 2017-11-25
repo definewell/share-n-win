@@ -5,6 +5,12 @@ import LoginScreen from './screens/LoginScreen'
 import Header from './screens/Header'
 import Dialog from './screens/Dialog'
 
+const SimpleApp = DrawerNavigator({
+    Home: {
+        screen: Header,
+    }
+});
+
 export default class App extends React.Component {
 
   render() {
