@@ -1,30 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import OfferScreen from './screens/OfferScreen'
-import LoginScreen from './screens/LoginScreen'
-import Header from './screens/Header'
-import Dialog from './screens/Dialog'
 
-const SimpleApp = DrawerNavigator({
-    Home: {
-        screen: Header,
-    }
-});
+import Login from './screens/Login'
+import OfferScreen from './screens/OfferScreen'
 
 export default class App extends React.Component {
 
+  state = {
+    isLoggedIn: false
+  }
+
   render() {
-    return (
-      <OfferScreen />
-    );
+
+    if (this.state.isLoggedIn) 
+      return <OfferScreen/>;
+    else 
+      return <Login
+          onLoginPress={() => this.setState({isLoggedIn: true})}
+        />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

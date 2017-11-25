@@ -1,4 +1,4 @@
 module.exports = {
 
-    CLIENT_API: '192.168.13.13:8080'
+    CLIENT_API: 'http://shareandwin.herokuapp.com'
 };
