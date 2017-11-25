@@ -11,7 +11,7 @@ import {
     ActivityIndicator
 } from 'react-native';
 
-import Environment from './Environment';
+import Environment from '../Environment';
 
 export default class Login extends Component {
 
@@ -32,11 +32,12 @@ export default class Login extends Component {
         };
 
         var proceed = false;
-        fetch("http://"+Environment.CLIENT_API+"/checkUser/"+params.username)
+        fetch(Environment.CLIENT_API+"/checkUser/"+params.username)
             .then((response) => response.json())
             .then((response) => {
                 console.debug("response is :  "+response);
                 if (response) proceed = true;
+                else Alert.alert("Wrong Identity Number")
             })
             .then(() => {
                 this.setState({ isLoggingIn: false })
@@ -57,14 +58,14 @@ export default class Login extends Component {
         return (
             <ScrollView contentContainerStyle={styles.container}>
                 <Image style={{width: 250, height: 250}}
-                    source={require('./img/logo.png')}
+                    source={require('../img/logo.png')}
                 />
                 <Text style={{fontSize: 20, fontWeight: 'bold'}}>
                     Share & Win
                 </Text>
 				<TextInput style={{width: 250, borderColor: 'gray', borderWidth: 1, marginTop: 5}}
 					ref={component => this._username = component}
-					placeholder='TC Identity Number' 
+					placeholder='Identity Number' 
 					onChangeText={(username) => this.setState({username})}
 					autoFocus={true}
                     onFocus={this.clearUsername}
@@ -93,7 +94,6 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center',
       padding: 20,
       backgroundColor: '#FFFFFF',
     },
