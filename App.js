@@ -7,9 +7,6 @@ import Header from './screens/Header'
 import Dialog from './screens/Dialog'
 import {DrawerNavigator} from 'react-navigation'
 
-import Login from './screens/Login'
-import OfferScreen from './screens/OfferScreen'
-
 export default class App extends React.Component {
 
   state = {
