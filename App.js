@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import OfferScreen from './screens/OfferScreen'
-import LoginScreen from './screens/LoginScreen'
+import Login from './screens/Login'
 import ShareScreen from './screens/ShareScreen'
 import Header from './screens/Header'
 import Dialog from './screens/Dialog'
