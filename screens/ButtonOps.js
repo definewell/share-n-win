@@ -7,7 +7,7 @@ export default class ButtonOps extends React.Component {
   render() {
     return (
         <View>
-       <Button style={btnStyle}>Track Your Offers</Button>
+       <Button style={this.props.btnStyle}>{this.props.btnText}</Button>
   
       </View>
     );

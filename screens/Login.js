@@ -4,19 +4,20 @@ import {
     Text,
     TextInput,
     View,
-    Button,
-    Alert,
     StyleSheet,
     Image,
     ActivityIndicator
 } from 'react-native';
 
 import Environment from '../Environment';
+import { Input} from 'nachos-ui'
+import { Button} from 'nachos-ui'
 
 export default class Login extends Component {
 
     state = {
         username: '',
+        usernameStatus: 'normal',
         isLoggingIn: false,
         message: ''
     }
@@ -37,7 +38,7 @@ export default class Login extends Component {
             .then((response) => {
                 console.debug("response is :  "+response);
                 if (response) proceed = true;
-                else Alert.alert("Wrong Identity Number")
+                else this.setState({ usernameStatus: 'error' })
             })
             .then(() => {
                 this.setState({ isLoggingIn: false })
@@ -57,21 +58,19 @@ export default class Login extends Component {
     render() {
         return (
             <ScrollView contentContainerStyle={styles.container}>
-                <Image style={{width: 250, height: 250}}
+                <Image style={{width: 250, height: 250, margin: 35}}
                     source={require('../img/logo.png')}
                 />
                 <Text style={{fontSize: 20, fontWeight: 'bold'}}>
                     Share & Win
                 </Text>
-				<TextInput style={{width: 250, borderColor: 'gray', borderWidth: 1, marginTop: 5}}
-					ref={component => this._username = component}
-					placeholder='Identity Number' 
-					onChangeText={(username) => this.setState({username})}
-					autoFocus={true}
-                    onFocus={this.clearUsername}
-                    keyboardType={'numeric'}
-                    underlineColorAndroid={'transparent'}
-				/>
+                <Input
+                    style={styles.inputStyle}
+                    placeholder='Identity Number'
+                    value={this.state.username}
+                    status={this.state.usernameStatus}
+                    onChangeText={username => this.setState({username})}
+                />
 				{!!this.state.message && (
 					<Text
 						style={{fontSize: 14, color: 'red', padding: 5}}>
@@ -79,12 +78,7 @@ export default class Login extends Component {
 					</Text>
 				)}
 				{this.state.isLoggingIn && <ActivityIndicator />}
-				<View style={{margin:7}} />
-				<View style={styles.button}>
-                <Text  style={{fontWeight: 'bold', alignItems: 'center', fontSize : 25, color: 'white'}}
-                    onPress={this._userLogin}
-                    disabled={this.state.isLoggingIn||!this.state.username}>Login</Text>
-                </View>
+				<Button style={styles.btnStyle} onPress={this._userLogin}>Login</Button>
 	      </ScrollView>
         )
     }
@@ -97,14 +91,11 @@ const styles = StyleSheet.create({
       padding: 20,
       backgroundColor: '#FFFFFF',
     },
-    button: {
-        backgroundColor: '#0961ef',
-        padding: 10,
-        marginBottom:10,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        width : 250,
-        height : 50  
+    btnStyle : { 
+        margin: 15,
+        width: 300 
     },
+    inputStyle : { 
+        margin: 15
+    }
   });

@@ -33,6 +33,9 @@ const styles = StyleSheet.create({
     buttonSelected: {
         opacity: 1,
         backgroundColor: '#fff',
+    },
+    buttonOpsStyle : { 
+        margin: 15 
     }
 });
 
@@ -79,7 +82,7 @@ class OfferScreen extends React.Component {
                     onPress = {this.onImagePress}
                     onPositionChanged={position => this.setState({position})}/>
 <Dialog/>
-<ButtonOps/>
+<ButtonOps btnText={"Track Your Offers"} btnStyle={styles.buttonOpsStyle}/>
                 
             </View>
         );
