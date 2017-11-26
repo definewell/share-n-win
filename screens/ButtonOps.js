@@ -8,7 +8,7 @@ export default class ButtonOps extends React.Component {
     return (
         <View>
        <Button style={this.props.btnStyle}>{this.props.btnText}</Button>
-  
+
       </View>
     );
   }

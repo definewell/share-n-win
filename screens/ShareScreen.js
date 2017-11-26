@@ -17,17 +17,20 @@ export default class ShareScreen extends Component {
 
   componentDidMount() {
     /* get this from  second page*/
-    let userId = '123456';
-    let cmpId = '100';
+    const {params} = this.props.navigation.state;
+    const userId = params.tckn;
+    const cmpId = params.compId;
+
+    console.log("UserId --> " + userId + " CmpId" + cmpId);
     switch (cmpId) {
-        case '100':
-        this.state.imgSource = '../img/card.png';
+        case 0:
+        this.state.imgSource = require('../img/card.png');
             break;
-        case '200':
-        this.state.imgSource = '../img/loan.png';
+        case 1:
+        this.state.imgSource = require('../img/loan.png');
             break;
-        case '300':
-        this.state.imgSource = '../img/tax.png';
+        case 2:
+        this.state.imgSource = require('../img/tax.png');
             break;        
         default:
             break;
@@ -62,6 +65,12 @@ export default class ShareScreen extends Component {
     }
 
     return (
+        <View>
+
+            <Button
+                onPress={() => this.props.navigation.goBack()}
+                title="Go to notifications"
+            />
         <View style={styles.container}>
             
             <Image style={{position: 'absolute',
@@ -78,7 +87,7 @@ export default class ShareScreen extends Component {
                 justifyContent: 'center',
 
             }} 
-                source={require('../img/loan.png')}/>
+                source={this.state.imgSource}/>
             
             
             <View style={styles.circle}><Text style={{fontWeight: 'bold', alignItems: 'center', fontSize : 25}}>{this.state.count}</Text></View>
@@ -90,7 +99,9 @@ export default class ShareScreen extends Component {
                 </View>
             </TouchableHighlight>
         
-      </View> 
+      </View>
+
+        </View>
     );
   }
 

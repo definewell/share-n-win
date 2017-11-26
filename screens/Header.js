@@ -1,7 +1,12 @@
 import React from 'react';
 import {StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
 
+
 export default class Header extends React.Component {
+
+    constructor(props){
+        super(props);
+    }
 
     static navigationOptions = {
         drawerLabel: 'Home'

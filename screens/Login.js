@@ -10,10 +10,21 @@ import {
 } from 'react-native';
 
 import Environment from '../Environment';
-import { Input} from 'nachos-ui'
-import { Button} from 'nachos-ui'
+import { Input} from 'nachos-ui';
+import { Button} from 'nachos-ui';
+
+import OfferScreen from './OfferScreen';
 
 export default class Login extends Component {
+
+    static navigationOptions = {
+        header: null
+    };
+
+    constructor(props) {
+        super(props);
+        this.state = {text: ''};
+    }
 
     state = {
         username: '',
@@ -42,7 +53,11 @@ export default class Login extends Component {
             })
             .then(() => {
                 this.setState({ isLoggingIn: false })
-                if (proceed) this.props.onLoginPress();
+                // if (proceed) this.props.onLoginPress();
+                if (proceed) {
+                    const {navigate} = this.props.navigation;
+                    navigate('OfferScreen', {user: this.state.text});
+                }
             })
             .catch(err => {
 				this.setState({ message: err.message });
