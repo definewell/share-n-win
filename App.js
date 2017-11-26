@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-import Login from './screens/Login'
 import OfferScreen from './screens/OfferScreen'
-import MyCard from './screens/MyCard'
+import Login from './screens/Login'
+import ShareScreen from './screens/ShareScreen'
+import Header from './screens/Header'
+import Dialog from './screens/Dialog'
+import {DrawerNavigator} from 'react-navigation'
 
 export default class App extends React.Component {
 
