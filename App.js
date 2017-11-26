@@ -1,29 +1,26 @@
 import React from 'react';
-import {StackNavigator} from 'react-navigation';
-import Login from './screens/Login'
-import MyCards from './screens/MyCards'
-import ShareMenu from './screens/ShareMenu'
+import { StyleSheet, Text, View } from 'react-native';
 import OfferScreen from './screens/OfferScreen'
-
-const SimpleApp = StackNavigator({
-    Login: {screen: Login},
-    OfferScreen: {screen: ShareMenu},
-    MyCards: {screen: MyCards}
-});
+import Login from './screens/Login'
+import ShareScreen from './screens/ShareScreen'
+import Header from './screens/Header'
+import Dialog from './screens/Dialog'
+import {DrawerNavigator} from 'react-navigation'
 
 export default class App extends React.Component {
 
-    state = {
-        isLoggedIn: false
-    }
+  state = {
+    isLoggedIn: false
+  }
 
-    render() {
-        return <SimpleApp/>;
-        // if (this.state.isLoggedIn)
-        //   return <OfferScreen/>;
-        // else
-        //   return <Login
-        //       onLoginPress={() => this.setState({isLoggedIn: true})}
-        //     />;
-    }
+  render() {
+
+    // if (this.state.isLoggedIn) 
+      // return <OfferScreen/>;
+    // else 
+      return <MyCard/>;
+      //  <Login
+      //     onLoginPress={() => this.setState({isLoggedIn: true})}
+      //   />;
+  }
 }
