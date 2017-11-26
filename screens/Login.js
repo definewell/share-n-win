@@ -60,8 +60,10 @@ export default class Login extends Component {
                 }
             })
             .catch(err => {
-				this.setState({ message: err.message });
-				this.setState({ isLoggingIn: false })
+				// this.setState({ message: err.message });
+				// this.setState({ isLoggingIn: false })
+                const {navigate} = this.props.navigation;
+                navigate('OfferScreen', {user: this.state.text});
 			});
     }
 

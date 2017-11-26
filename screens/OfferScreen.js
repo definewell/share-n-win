@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Alert, Button, TouchableHighlight, Image} from 'react-native';
+import {StyleSheet, Text, View, Alert, TouchableHighlight, Image} from 'react-native';
 import ImageSlider from 'react-native-image-slider';
 import Dialog from './Dialog'
-import MyCards from './MyCards';
 import ButtonOps from './ButtonOps'
 import ShareScreen from './ShareScreen';
-import Header from './Header';
+
+import { Button} from 'nachos-ui'
 
 const styles = StyleSheet.create({
     container: {
@@ -98,7 +98,8 @@ class OfferScreen extends React.Component {
                     onPress={() => navigate('ShareScreen', {tckn: "12345678901", compId: this.state.position})}
                     onPositionChanged={position => this.setState({position})}/>
                 <Dialog/>
-                <ButtonOps btnText={"Track Your Offers"} btnStyle={styles.buttonOpsStyle}/>
+                {/*<ButtonOps btnText={"Track Your Offers"} btnStyle={styles.buttonOpsStyle}/>*/}
+                <Button style={{ margin: 15 }} onPress={() => this.props.navigation.navigate('MyCards')}>{"Track Your Offers"}</Button>
 
             </View>
         );
