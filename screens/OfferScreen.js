@@ -3,7 +3,6 @@ import { StyleSheet, Text, View , Alert, Button} from 'react-native';
 import ImageSlider from 'react-native-image-slider';
 import Dialog from './Dialog'
 import ButtonOps from './ButtonOps'
-import Header from './Header'
 
 
 const styles = StyleSheet.create({
@@ -70,7 +69,6 @@ class OfferScreen extends React.Component {
  
     render() { 
         return (
-            <Header/>
             <View style={styles.container}>
                 <ImageSlider
                     style = {styles.image}
