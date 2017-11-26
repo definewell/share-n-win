@@ -1,32 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { DrawerNavigator } from 'react-navigation';
-import Movies from './RestExample'
 import OfferScreen from './screens/OfferScreen'
 import LoginScreen from './screens/LoginScreen'
+import ShareScreen from './screens/ShareScreen'
 import Header from './screens/Header'
-
-const SimpleApp = DrawerNavigator({
-    Home: {
-        screen: Header,
-    }
-});
+import Dialog from './screens/Dialog'
+import {DrawerNavigator} from 'react-navigation'
 
 export default class App extends React.Component {
 
+  state = {
+    isLoggedIn: false
+  }
+
   render() {
-      return <SimpleApp />;
-    // return (
-    //   <Header />
-    // );
+
+    if (this.state.isLoggedIn) 
+      return <OfferScreen/>;
+    else 
+      return <Login
+          onLoginPress={() => this.setState({isLoggedIn: true})}
+        />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
