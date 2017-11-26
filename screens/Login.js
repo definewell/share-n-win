@@ -75,14 +75,14 @@ export default class Login extends Component {
     render() {
         return (
             <ScrollView contentContainerStyle={styles.container}>
-                <Image style={{width: 250, height: 250, margin: 35}}
+                <Image style={{width: 150, height: 150, marginTop: 80}}
                     source={require('../img/logo.png')}
                 />
-                <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+                <Text style={{fontSize: 20, fontWeight: 'bold', color: '#85bb65', marginTop: 15}}>
                     Share & Win
                 </Text>
                 <Input
-                    style={styles.inputStyle}
+                    style={inputStyle}
                     placeholder='Identity Number'
                     value={this.state.username}
                     status={this.state.usernameStatus}
@@ -95,7 +95,7 @@ export default class Login extends Component {
 					</Text>
 				)}
 				{this.state.isLoggingIn && <ActivityIndicator />}
-				<Button style={styles.btnStyle} onPress={this._userLogin}>Login</Button>
+				<Button style={btnStyle} onPress={this._userLogin}>Login</Button>
 	      </ScrollView>
         )
     }
@@ -107,12 +107,14 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       padding: 20,
       backgroundColor: '#FFFFFF',
-    },
-    btnStyle : { 
-        margin: 15,
-        width: 300 
-    },
-    inputStyle : { 
-        margin: 15
     }
-  });
+});
+
+const inputStyle = { 
+    margin: 15
+}
+
+const  btnStyle = { 
+    margin: 15,
+    width: 300 
+}

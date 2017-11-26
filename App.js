@@ -15,12 +15,11 @@ export default class App extends React.Component {
 
   render() {
 
-    // if (this.state.isLoggedIn) 
-      // return <OfferScreen/>;
-    // else 
-      return <MyCard/>;
-      //  <Login
-      //     onLoginPress={() => this.setState({isLoggedIn: true})}
-      //   />;
+    if (this.state.isLoggedIn) 
+      return <OfferScreen/>;
+    else 
+      return <Login
+        onLoginPress={() => this.setState({isLoggedIn: true})}
+      />;
   }
 }
